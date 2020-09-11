@@ -20,7 +20,7 @@ export default {
     ProductList
   },
   methods: {
-    handleScroll: function () { //load more if srolled to bottom
+    handleScroll: function () { //load more when srolled to bottom
       let container = this.$el;
       if ( container.scrollTop + window.innerHeight === container.scrollHeight ) {
         this.$el.querySelector('#productList a.load-more').click();
