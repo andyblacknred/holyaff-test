@@ -2,14 +2,12 @@
   <div id="app" @scroll="handleScroll">
     <Header />
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <ProductList />
     <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import ProductList from './components/ProductList.vue'
@@ -17,7 +15,6 @@ import ProductList from './components/ProductList.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     Header,
     Footer,
     ProductList
@@ -26,7 +23,7 @@ export default {
     handleScroll: function () { //load more if srolled to bottom
       let container = this.$el;
       if ( container.scrollTop + window.innerHeight === container.scrollHeight ) {
-        // this.$el.querySelector('#productList a.load-more').click();
+        this.$el.querySelector('#productList a.load-more').click();
       }
     }
   }
@@ -34,8 +31,42 @@ export default {
 </script>
 
 <style lang="scss">
+$primary: #41b883;
+$secondary: #35495e;
+$black: #000;
+$white: #fff;
+
 .d-none {
   display: none!important;
+}
+
+.btn {
+  padding: 15px 25px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+  background-color: #41b883;
+  &.btn-secondary {
+    background-color: #35495e;
+  }
+}
+
+.loader-ico {
+  width: 40px;
+  height: 40px;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 body {
